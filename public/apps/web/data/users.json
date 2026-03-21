@@ -1,0 +1,26 @@
+[
+  {
+    "id": "u0",
+    "name": "D&D Owner",
+    "email": "admin@dandd.ng",
+    "passwordHash": "$2a$10$fBzMHLI.llM7epIRpljd/.IpOvlb8kpvaCgZ5aY6NRUIDfmDuK7mS",
+    "role": "admin",
+    "createdAt": "2025-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "u1",
+    "name": "Demo User",
+    "email": "demo@example.com",
+    "passwordHash": "$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi",
+    "role": "user",
+    "createdAt": "2024-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "u2",
+    "name": "Fashina Oluseun",
+    "email": "you@example.com",
+    "passwordHash": "$2a$10$c9/NO5VTNscvxN.3p0hjreI5dsGf8g/Y5cFfpMC2sbKEqc/UqyJcm",
+    "role": "user",
+    "createdAt": "2026-02-25T10:18:35.486Z"
+  }
+]

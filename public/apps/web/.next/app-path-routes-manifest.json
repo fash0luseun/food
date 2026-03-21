@@ -1,0 +1,22 @@
+{
+  "/(auth)/login/page": "/login",
+  "/(auth)/signup/page": "/signup",
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/auth/login/route": "/api/auth/login",
+  "/api/auth/me/route": "/api/auth/me",
+  "/api/auth/signup/route": "/api/auth/signup",
+  "/api/orders/[id]/route": "/api/orders/[id]",
+  "/api/orders/route": "/api/orders",
+  "/api/restaurants/[id]/menu/route": "/api/restaurants/[id]/menu",
+  "/api/restaurants/[id]/route": "/api/restaurants/[id]",
+  "/api/restaurants/route": "/api/restaurants",
+  "/cart/page": "/cart",
+  "/checkout/page": "/checkout",
+  "/orders/[id]/page": "/orders/[id]",
+  "/orders/page": "/orders",
+  "/page": "/",
+  "/restaurants/[id]/page": "/restaurants/[id]",
+  "/restaurants/page": "/restaurants",
+  "/settings/page": "/settings"
+}
