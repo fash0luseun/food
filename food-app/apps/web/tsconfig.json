@@ -24,6 +24,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@food-app/shared": [
+        "../../packages/shared/src/index.ts"
       ]
     },
     "typeRoots": [

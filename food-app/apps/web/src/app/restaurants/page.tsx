@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import type { Restaurant } from '@food-app/shared'
 import { Navbar } from '@/components/layout/Navbar'
@@ -34,7 +34,7 @@ const DELIVERY_FEES = [
   { label: '< ₦1k',  value: '1000' },
 ]
 
-export default function RestaurantsPage() {
+function RestaurantsContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const { isAuthenticated, isLoading: authLoading } = useAuth()
@@ -262,5 +262,13 @@ export default function RestaurantsPage() {
         )}
       </main>
     </>
+  )
+}
+
+export default function RestaurantsPage() {
+  return (
+    <Suspense>
+      <RestaurantsContent />
+    </Suspense>
   )
 }

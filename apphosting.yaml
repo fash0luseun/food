@@ -1,0 +1,11 @@
+runConfig:
+  runtime: nodejs20
+  cpu: 1
+  memoryMiB: 512
+
+outputFiles:
+  serverApp:
+    include:
+      - food-app/apps/web/.next/standalone
+      - food-app/apps/web/.next/static
+      - food-app/apps/web/public
