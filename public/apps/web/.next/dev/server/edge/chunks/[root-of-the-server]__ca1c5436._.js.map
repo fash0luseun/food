@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 16, "column": 0}, "map": {"version":3,"sources":["turbopack:///[project]/food/food-app/apps/web/src/middleware.ts"],"sourcesContent":["import { NextRequest, NextResponse } from 'next/server'\n\n// All routes that require authentication (client-side guard handles actual redirect)\nconst PUBLIC_PATHS = ['/login', '/signup', '/api']\n\nexport function middleware(req: NextRequest) {\n  const { pathname } = req.nextUrl\n  const isPublic = PUBLIC_PATHS.some((p) => pathname.startsWith(p))\n  if (isPublic) return NextResponse.next()\n  // All other routes are protected — actual enforcement is done client-side via AuthContext\n  return NextResponse.next()\n}\n\nexport const config = {\n  matcher: ['/((?!_next/static|_next/image|favicon.ico).*)'],\n}\n"],"names":[],"mappings":";;;;;;AAAA;AAAA;;AAEA,qFAAqF;AACrF,MAAM,eAAe;IAAC;IAAU;IAAW;CAAO;AAE3C,SAAS,WAAW,GAAgB;IACzC,MAAM,EAAE,QAAQ,EAAE,GAAG,IAAI,OAAO;IAChC,MAAM,WAAW,aAAa,IAAI,CAAC,CAAC,IAAM,SAAS,UAAU,CAAC;IAC9D,IAAI,UAAU,OAAO,sOAAY,CAAC,IAAI;IACtC,0FAA0F;IAC1F,OAAO,sOAAY,CAAC,IAAI;AAC1B;AAEO,MAAM,SAAS;IACpB,SAAS;QAAC;KAAgD;AAC5D"}}]
-}

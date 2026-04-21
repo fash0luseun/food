@@ -23,4 +23,5 @@ export interface MenuItem {
   price: number
   imageUrl: string
   isAvailable: boolean
+  tribe?: string
 }

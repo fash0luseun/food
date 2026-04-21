@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cmd /c \"where node\")",
+      "Bash(cmd /c \"where npm\")",
+      "Bash(cmd /c \"where node 2>&1\")",
+      "Bash(cmd /c \"where npm 2>&1\")",
+      "Bash(\"/c/Program Files/nodejs/npm.cmd\" install:*)",
+      "Bash(export PATH=\"/c/Program Files/nodejs:$PATH\")",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npx tsc:*)",
+      "Bash(wmic process:*)",
+      "Bash(firebase experiments:enable webframeworks)",
+      "Bash(firebase deploy:*)",
+      "Bash(NODE_PATH=\"C:/Users/Fashina oluseun/food/food-app/apps/web/node_modules\" npm run build)",
+      "Bash(cmd /c \"rmdir /S /Q \"\"C:\\\\Users\\\\Fashina oluseun\\\\food\\\\food-app\\\\apps\\\\web\\\\node_modules\\\\next\"\"\")",
+      "Bash(netstat -ano)",
+      "Bash(taskkill /F /IM node.exe)",
+      "Bash(rm -rf \"/c/Users/Fashina oluseun/food/food-app/apps/web/.next/dev/lock\")",
+      "Bash(xargs grep *)"
+    ]
+  }
+}

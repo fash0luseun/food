@@ -13,7 +13,7 @@ export function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
           <img
             src={restaurant.imageUrl}
             alt={restaurant.name}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105 opacity-90"
+            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
@@ -34,6 +34,7 @@ export function RestaurantCard({ restaurant }: { restaurant: Restaurant }) {
             <span className="flex items-center gap-1 rounded-xl bg-black/70 backdrop-blur-sm border border-[var(--border)] px-2.5 py-1 text-xs font-bold text-white">
               <span className="text-[var(--gold)]">★</span>
               {restaurant.rating}
+              <span className="text-white/60 font-normal">({restaurant.reviewCount})</span>
             </span>
           </div>
         </div>

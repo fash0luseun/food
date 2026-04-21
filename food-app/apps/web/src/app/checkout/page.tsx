@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
@@ -40,9 +40,15 @@ export default function CheckoutPage() {
   const [paymentMethod, setPaymentMethod] = useState('card')
   const [selectedAddress, setSelectedAddress] = useState('home')
 
-  if (isLoading) return null
-  if (!isAuthenticated) { router.replace('/login'); return null }
-  if (items.length === 0) { router.replace('/cart'); return null }
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) router.replace('/login')
+  }, [isLoading, isAuthenticated, router])
+
+  useEffect(() => {
+    if (!isLoading && isAuthenticated && items.length === 0) router.replace('/cart')
+  }, [isLoading, isAuthenticated, items.length, router])
+
+  if (isLoading || !isAuthenticated || items.length === 0) return null
 
   const FREE_DELIVERY_THRESHOLD = 30
   const BASE_DELIVERY_FEE = 1.99

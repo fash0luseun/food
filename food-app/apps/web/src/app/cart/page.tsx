@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { useAuth } from '@/context/AuthContext'
@@ -12,8 +13,11 @@ export default function CartPage() {
   const { items, totalItems, subtotal, increment, decrement, removeItem } = useCart()
   const router = useRouter()
 
-  if (isLoading) return null
-  if (!isAuthenticated) { router.replace('/login'); return null }
+  useEffect(() => {
+    if (!isLoading && !isAuthenticated) router.replace('/login')
+  }, [isLoading, isAuthenticated, router])
+
+  if (isLoading || !isAuthenticated) return null
 
   const DELIVERY_FEE = 1.99
   const SERVICE_FEE = 0

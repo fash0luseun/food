@@ -43,10 +43,46 @@ const SPECIAL_OFFERS = [
 ]
 
 const RECOMMENDED = [
-  { name: 'Egusi Soup & Pounded Yam', rating: '4.9', time: '25 min', price: '₦3,500', tag: 'Popular', food: '🍲' },
-  { name: 'Jollof Rice & Chicken',    rating: '4.8', time: '20 min', price: '₦2,800', tag: 'Top Pick', food: '🍚' },
-  { name: 'Suya Platter (500g)',      rating: '4.9', time: '15 min', price: '₦4,000', tag: 'Hot 🔥',  food: '🥩' },
-  { name: 'Ofe Onugbu & Fufu',        rating: '4.7', time: '30 min', price: '₦3,200', tag: 'Fresh',   food: '🫕' },
+  {
+    name: 'Egusi Soup & Pounded Yam',
+    rating: '4.9',
+    time: '25 min',
+    price: '₦3,500',
+    tag: 'Popular',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Egusi_soup.jpg',
+  },
+  {
+    name: 'Jollof Rice & Chicken',
+    rating: '4.8',
+    time: '20 min',
+    price: '₦2,800',
+    tag: 'Top Pick',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Nigerian-Jollof-Rice.jpg',
+  },
+  {
+    name: 'Suya Platter (500g)',
+    rating: '4.9',
+    time: '15 min',
+    price: '₦4,000',
+    tag: 'Hot 🔥',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg',
+  },
+  {
+    name: 'Ofe Onugbu & Fufu',
+    rating: '4.7',
+    time: '30 min',
+    price: '₦3,200',
+    tag: 'Fresh',
+    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Ogbono_soup.jpg',
+  },
+]
+
+// Four hero food images shown as a collage on the right side of the hero
+const HERO_IMAGES = [
+  { src: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Nigerian-Jollof-Rice.jpg', label: 'Jollof Rice' },
+  { src: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg',               label: 'Suya' },
+  { src: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Egusi_soup.jpg',            label: 'Egusi Soup' },
+  { src: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Afang_Soup.jpg',            label: 'Afang Soup' },
 ]
 
 const WHAT_WE_SERVE = [
@@ -128,16 +164,23 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Hero visual */}
-            <div className="relative hidden lg:flex flex-col items-center justify-center shrink-0">
-              <div className="w-80 h-80 rounded-full bg-[var(--gold-bg)] border border-[var(--gold-border)] flex items-center justify-center">
-                <div className="w-64 h-64 rounded-full bg-[var(--gold-bg)] border border-[var(--gold-border)] flex items-center justify-center">
-                  <span className="text-9xl select-none">🍲</span>
-                </div>
+            {/* Hero visual — 2×2 food image collage */}
+            <div className="relative hidden lg:block shrink-0 w-[340px]">
+              <div className="grid grid-cols-2 gap-3">
+                {HERO_IMAGES.map((img) => (
+                  <div key={img.label} className="relative rounded-2xl overflow-hidden h-44 group">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={img.src}
+                      alt={img.label}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <span className="absolute bottom-2 left-2.5 text-white text-xs font-bold drop-shadow">{img.label}</span>
+                  </div>
+                ))}
               </div>
-              <span className="absolute top-2 right-0 text-4xl animate-bounce" style={{ animationDelay: '0s', animationDuration: '3s' }}>🔥</span>
-              <span className="absolute bottom-4 right-4 text-3xl animate-bounce" style={{ animationDelay: '1s', animationDuration: '3.5s' }}>🍚</span>
-              <span className="absolute top-8 -left-4 text-3xl animate-bounce" style={{ animationDelay: '0.5s', animationDuration: '2.8s' }}>🫓</span>
+              {/* Stat cards */}
               <div className="absolute -top-4 -right-10 bg-[var(--surface)] border border-[var(--border)] rounded-2xl px-4 py-2.5" style={{ boxShadow: 'var(--shadow-md)' }}>
                 <p className="text-xs text-[var(--text-3)]">Avg. delivery</p>
                 <p className="text-lg font-black text-[var(--text)]">28 <span className="text-sm font-medium text-[var(--gold)]">min</span></p>
@@ -225,16 +268,22 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             {RECOMMENDED.map((item) => (
-              <Link key={item.name} href="/restaurants">
-                <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[var(--gold)]/50 transition-all group" style={{ boxShadow: 'var(--shadow-sm)' }}>
-                  <div className="h-28 bg-gradient-to-br from-[var(--gold-bg)] to-[var(--surface-2)] flex items-center justify-center relative">
-                    <span className="text-5xl group-hover:scale-110 transition-transform">{item.food}</span>
+              <Link key={item.name} href="/menu">
+                <div className="bg-[var(--surface)] border border-[var(--border)] rounded-2xl overflow-hidden hover:border-[var(--gold)]/50 hover:shadow-lg transition-all group" style={{ boxShadow: 'var(--shadow-sm)' }}>
+                  <div className="relative h-36 overflow-hidden bg-[var(--surface-2)]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={item.imageUrl}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
                     <span className="absolute top-2 left-2 text-[10px] font-bold px-2 py-0.5 rounded-full bg-[var(--gold)] text-[var(--gold-text)]">
                       {item.tag}
                     </span>
                   </div>
                   <div className="p-3">
-                    <p className="font-bold text-[var(--text)] text-sm leading-tight">{item.name}</p>
+                    <p className="font-bold text-[var(--text)] text-sm leading-tight line-clamp-2">{item.name}</p>
                     <div className="flex items-center gap-1 mt-2 text-xs text-[var(--text-3)]">
                       <span className="text-[var(--gold)]">★</span>
                       <span>{item.rating}</span>
@@ -247,6 +296,30 @@ export default function HomePage() {
               </Link>
             ))}
           </div>
+        </section>
+
+        {/* ── Tribal Cuisines banner ── */}
+        <section className="mx-auto max-w-7xl px-4 pb-8">
+          <Link href="/menu">
+            <div className="relative rounded-3xl overflow-hidden h-44 group cursor-pointer">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg"
+                alt="Nigerian tribal cuisines"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
+              <div className="absolute inset-0 flex items-center px-8">
+                <div>
+                  <p className="text-xs font-bold text-[var(--gold)] uppercase tracking-widest mb-1">Explore 6 Tribes</p>
+                  <h3 className="text-2xl font-black text-white leading-tight">Yoruba · Igbo · Hausa<br />Efik · Urhobo · Ijaw</h3>
+                  <div className="mt-3 inline-flex items-center gap-2 bg-[var(--gold)] text-[var(--gold-text)] rounded-xl px-4 py-2 text-sm font-black group-hover:bg-amber-500 transition-colors">
+                    Browse Tribal Menu →
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Link>
         </section>
 
         {/* ── What We Serve ── */}

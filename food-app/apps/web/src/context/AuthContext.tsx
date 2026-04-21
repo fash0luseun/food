@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
 import type { User } from '@food-app/shared'
+import { setTokenGetter } from '@food-app/shared'
 
 interface AuthState {
   user: User | null
@@ -67,6 +68,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         dispatch({ type: 'SET_LOADING', payload: false })
       })
   }, [])
+
+  useEffect(() => {
+    setTokenGetter(async () => state.token)
+  }, [state.token])
 
   function login(token: string, user: User) {
     localStorage.setItem(TOKEN_KEY, token)

@@ -31,7 +31,7 @@ const SEED_USERS: StoredUser[] = [
     name: 'Demo User',
     email: 'demo@example.com',
     // bcryptjs hash of "password123"
-    passwordHash: '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
+    passwordHash: '$2a$10$Qqyz11mXRBoXwKwQGuVrAetvlMssTDqmspRUkv9NZSYUiByyzsxk6',
     role: 'user',
     createdAt: '2024-01-01T00:00:00.000Z',
   },

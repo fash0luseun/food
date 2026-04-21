@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "additionalDirectories": [
+      "c:\\Users\\Fashina oluseun\\New folder\\food-app\\apps\\web\\src\\app\\api\\admin\\submissions"
+    ],
+    "allow": [
+      "Read(//c/Users/Fashina oluseun/.claude/projects/c--Users-Fashina-oluseun-New-folder/memory/**)"
+    ]
+  }
+}
