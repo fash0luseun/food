@@ -43,46 +43,18 @@ const SPECIAL_OFFERS = [
 ]
 
 const RECOMMENDED = [
-  {
-    name: 'Egusi Soup & Pounded Yam',
-    rating: '4.9',
-    time: '25 min',
-    price: '₦3,500',
-    tag: 'Popular',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Egusi_soup.jpg',
-  },
-  {
-    name: 'Jollof Rice & Chicken',
-    rating: '4.8',
-    time: '20 min',
-    price: '₦2,800',
-    tag: 'Top Pick',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Nigerian-Jollof-Rice.jpg',
-  },
-  {
-    name: 'Suya Platter (500g)',
-    rating: '4.9',
-    time: '15 min',
-    price: '₦4,000',
-    tag: 'Hot 🔥',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg',
-  },
-  {
-    name: 'Ofe Onugbu & Fufu',
-    rating: '4.7',
-    time: '30 min',
-    price: '₦3,200',
-    tag: 'Fresh',
-    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/8/8b/Ogbono_soup.jpg',
-  },
+  { name: 'Egusi Soup & Pounded Yam', rating: '4.9', time: '25 min', price: '₦3,500', tag: 'Popular',  imageUrl: '/images/food/egusi.jpg' },
+  { name: 'Jollof Rice & Chicken',    rating: '4.8', time: '20 min', price: '₦2,800', tag: 'Top Pick', imageUrl: '/images/food/jollof.jpg' },
+  { name: 'Suya Platter (500g)',       rating: '4.9', time: '15 min', price: '₦4,000', tag: 'Hot 🔥',   imageUrl: '/images/food/suya.jpg' },
+  { name: 'Ofe Onugbu & Fufu',        rating: '4.7', time: '30 min', price: '₦3,200', tag: 'Fresh',    imageUrl: '/images/food/ogbono.jpg' },
 ]
 
 // Four hero food images shown as a collage on the right side of the hero
 const HERO_IMAGES = [
-  { src: 'https://upload.wikimedia.org/wikipedia/commons/b/bf/Nigerian-Jollof-Rice.jpg', label: 'Jollof Rice' },
-  { src: 'https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg',               label: 'Suya' },
-  { src: 'https://upload.wikimedia.org/wikipedia/commons/5/5e/Egusi_soup.jpg',            label: 'Egusi Soup' },
-  { src: 'https://upload.wikimedia.org/wikipedia/commons/7/74/Afang_Soup.jpg',            label: 'Afang Soup' },
+  { src: '/images/food/jollof.jpg',       label: 'Jollof Rice' },
+  { src: '/images/food/suya.jpg',         label: 'Suya' },
+  { src: '/images/food/egusi.jpg',        label: 'Egusi Soup' },
+  { src: '/images/food/edikang-ikong.jpg',label: 'Edikang Ikong' },
 ]
 
 const WHAT_WE_SERVE = [
@@ -304,7 +276,7 @@ export default function HomePage() {
             <div className="relative rounded-3xl overflow-hidden h-44 group cursor-pointer">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Suya-8.jpg"
+                src="/images/food/suya.jpg"
                 alt="Nigerian tribal cuisines"
                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
