@@ -37,7 +37,7 @@ const SEED_USERS: StoredUser[] = [
   },
 ]
 
-const DATA_DIR = join(process.cwd(), 'data')
+const DATA_DIR = process.env.VERCEL ? '/tmp' : join(process.cwd(), 'data')
 const USERS_FILE = join(DATA_DIR, 'users.json')
 
 function loadUsers(): StoredUser[] {
