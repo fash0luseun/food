@@ -7,7 +7,9 @@ const __dirname = path.dirname(__filename)
 /** @type {import('next').NextConfig} */
 const config = {
   transpilePackages: ['@food-app/shared'],
-  turbopack: {},
+  turbopack: {
+    root: path.resolve(__dirname, '../..'),
+  },
   webpack(webpackConfig) {
     webpackConfig.resolve.alias = {
       ...webpackConfig.resolve.alias,
