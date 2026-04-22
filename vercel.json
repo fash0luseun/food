@@ -1,6 +1,0 @@
-{
-  "framework": "nextjs",
-  "installCommand": "npm install && cd food-app && npm install",
-  "buildCommand": "cd food-app && npm run build --workspace=apps/web",
-  "outputDirectory": "food-app/apps/web/.next"
-}
