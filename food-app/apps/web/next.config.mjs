@@ -1,4 +1,3 @@
-import { createRequire } from 'module'
 import { fileURLToPath } from 'url'
 import path from 'path'
 
@@ -8,6 +7,7 @@ const __dirname = path.dirname(__filename)
 /** @type {import('next').NextConfig} */
 const config = {
   transpilePackages: ['@food-app/shared'],
+  turbopack: {},
   webpack(webpackConfig) {
     webpackConfig.resolve.alias = {
       ...webpackConfig.resolve.alias,
