@@ -1,14 +1,14 @@
-import type { NextConfig } from 'next'
+import { createRequire } from 'module'
+import { fileURLToPath } from 'url'
 import path from 'path'
 
-const config: NextConfig = {
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+/** @type {import('next').NextConfig} */
+const config = {
   transpilePackages: ['@food-app/shared'],
-  turbopack: {
-    root: path.resolve(__dirname, '../..'),
-  },
   webpack(webpackConfig) {
-    // Force all React imports to resolve to the local React 19 install
-    // (prevents conflict with React 18 in the monorepo root node_modules)
     webpackConfig.resolve.alias = {
       ...webpackConfig.resolve.alias,
       react: path.resolve(__dirname, 'node_modules/react'),
