@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import {
-  View, Text, FlatList, TouchableOpacity, ActivityIndicator, SafeAreaView,
+  View, Text, FlatList, TouchableOpacity, ActivityIndicator, SafeAreaView, Alert,
 } from 'react-native'
 import { useRouter } from 'expo-router'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import type { Order } from '@food-app/shared'
 import { useAuth } from '../../../context/AuthContext'
 import { formatPrice, formatDate } from '../../../lib/utils'
-
-const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:3000'
 
 const BASE_URL = process.env.EXPO_PUBLIC_API_URL ?? 'http://localhost:3000'
 
@@ -102,26 +100,24 @@ export default function OrdersScreen() {
                   className="mt-2 bg-red-500 rounded-full px-3 py-1 self-start"
                   onPress={async (e) => {
                     e.stopPropagation()
-                    import('react-native').then(({ Alert }) => {
-                      Alert.alert('Cancel order', 'Are you sure?', [
-                        { text: 'No', style: 'cancel' },
-                        { text: 'Yes', onPress: async () => {
-                            try {
-                              const r = await fetch(`${BASE_URL}/api/orders/${order.id}`, {
-                                method: 'DELETE',
-                                headers: { Authorization: `Bearer ${token}` },
-                              })
-                              const d = await r.json()
-                              if (d.order) {
-                                setOrders((prev) => prev.map((o) => (o.id === order.id ? d.order : o)))
-                              }
-                            } catch (err) {
-                              console.error(err)
-                              import('react-native').then(({ Alert }) => Alert.alert('Unable to cancel'))
+                    Alert.alert('Cancel order', 'Are you sure?', [
+                      { text: 'No', style: 'cancel' },
+                      { text: 'Yes', onPress: async () => {
+                          try {
+                            const r = await fetch(`${BASE_URL}/api/orders/${order.id}`, {
+                              method: 'DELETE',
+                              headers: { Authorization: `Bearer ${token}` },
+                            })
+                            const d = await r.json()
+                            if (d.order) {
+                              setOrders((prev) => prev.map((o) => (o.id === order.id ? d.order : o)))
                             }
-                          } }
-                      ])
-                    })
+                          } catch (err) {
+                            console.error(err)
+                            Alert.alert('Unable to cancel')
+                          }
+                        } }
+                    ])
                   }}
                 >
                   <Text className="text-white text-xs font-medium">Cancel</Text>

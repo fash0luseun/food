@@ -5,14 +5,14 @@ import { Logo } from '@/components/ui/Logo'
 import { AuthGuard } from '@/components/auth/AuthGuard'
 
 const CATEGORIES = [
-  { label: 'Rice Dishes',   icon: '🍚', href: '/restaurants?category=rice' },
-  { label: 'Soups',         icon: '🍲', href: '/restaurants?category=soups' },
-  { label: 'Swallow',       icon: '🫓', href: '/restaurants?category=swallow' },
-  { label: 'Suya & Grills', icon: '🔥', href: '/restaurants?category=suya' },
-  { label: 'Pepper Soup',   icon: '🌶️', href: '/restaurants?category=pepper-soup' },
-  { label: 'Snacks',        icon: '🫔', href: '/restaurants?category=snacks' },
-  { label: 'Drinks',        icon: '🥤', href: '/restaurants?category=drinks' },
-  { label: 'Desserts',      icon: '🍮', href: '/restaurants?category=desserts' },
+  { label: 'Rice Dishes',   iconSrc: '/icons/icon_rice.png', href: '/restaurants?category=rice' },
+  { label: 'Soups',         iconSrc: '/icons/icon_soups.png', href: '/restaurants?category=soups' },
+  { label: 'Swallow',       iconSrc: '/icons/icon_swallow.png', href: '/restaurants?category=swallow' },
+  { label: 'Suya & Grills', iconSrc: '/icons/icon_suya.png', href: '/restaurants?category=suya' },
+  { label: 'Pepper Soup',   iconSrc: '/icons/icon_peppersoup.png', href: '/restaurants?category=pepper-soup' },
+  { label: 'Snacks',        iconSrc: '/icons/icon_snacks.png', href: '/restaurants?category=snacks' },
+  { label: 'Drinks',        iconSrc: '/icons/icon_drinks.png', href: '/restaurants?category=drinks' },
+  { label: 'Desserts',      iconSrc: '/icons/icon_desserts.png', href: '/restaurants?category=desserts' },
 ]
 
 const SPECIAL_OFFERS = [
@@ -59,22 +59,22 @@ const HERO_IMAGES = [
 
 const WHAT_WE_SERVE = [
   {
-    icon: '🍲',
+    iconSrc: '/icons/icon_soups.png',
     title: 'Traditional Soups',
     desc: 'Egusi, Efo Riro, Gbegiri, Ogbono, Oha — cooked fresh by local bukas and home chefs.',
   },
   {
-    icon: '🔥',
+    iconSrc: '/icons/icon_suya.png',
     title: 'Suya & Grills',
     desc: 'Spicy yaji-marinated beef, chicken, and ram suya grilled over open flame.',
   },
   {
-    icon: '🍚',
+    iconSrc: '/icons/icon_rice.png',
     title: 'Rice Dishes',
     desc: 'Party jollof, coconut rice, ofada rice, fried rice — the full Nigerian spread.',
   },
   {
-    icon: '🫓',
+    iconSrc: '/icons/icon_swallow.png',
     title: 'Swallow & Sides',
     desc: 'Pounded yam, amala, fufu, eba — paired with your favourite soups.',
   },
@@ -175,8 +175,9 @@ export default function HomePage() {
             {CATEGORIES.map((cat) => (
               <Link key={cat.label} href={cat.href}>
                 <div className="bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--gold)]/50 hover:bg-[var(--surface-2)] rounded-2xl p-3 flex flex-col items-center gap-2 transition-all cursor-pointer group" style={{ boxShadow: 'var(--shadow-sm)' }}>
-                  <div className="w-12 h-12 rounded-xl bg-[var(--gold-bg)] flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span className="text-2xl">{cat.icon}</span>
+                  <div className="w-12 h-12 rounded-full bg-[var(--gold-bg)] flex items-center justify-center group-hover:scale-110 transition-transform overflow-hidden border border-[var(--gold-border)] p-1">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={cat.iconSrc} alt={cat.label} className="w-full h-full object-cover rounded-full" />
                   </div>
                   <span className="text-xs font-semibold text-[var(--text-2)] group-hover:text-[var(--gold)] transition-colors text-center leading-tight">{cat.label}</span>
                 </div>
@@ -304,7 +305,10 @@ export default function HomePage() {
             {WHAT_WE_SERVE.map((item) => (
               <Link key={item.title} href="/restaurants">
                 <div className="bg-[var(--surface)] border border-[var(--border)] hover:border-[var(--gold)]/60 rounded-2xl p-5 flex flex-col gap-3 transition-all group hover:bg-[var(--surface-2)] cursor-pointer h-full" style={{ boxShadow: 'var(--shadow-sm)' }}>
-                  <span className="text-4xl group-hover:scale-110 transition-transform">{item.icon}</span>
+                  <div className="w-16 h-16 rounded-2xl overflow-hidden group-hover:scale-110 transition-transform border border-[var(--gold-border)] shadow-md">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={item.iconSrc} alt={item.title} className="w-full h-full object-cover" />
+                  </div>
                   <h3 className="font-black text-[var(--text)] group-hover:text-[var(--gold)] transition-colors">{item.title}</h3>
                   <p className="text-sm text-[var(--text-3)] leading-relaxed">{item.desc}</p>
                 </div>
